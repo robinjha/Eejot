@@ -8,6 +8,7 @@
     <!--
     This title strip will display the currently visible page title, as well as the page
     titles for adjacent pages.
+    #33b5e5
     -->
 
     <android.support.v4.view.PagerTitleStrip
@@ -15,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:background="#33b5e5"
+        android:background="#33cc33"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:textColor="#fff" />
