@@ -1,7 +1,11 @@
 package org.android.eejot;
 
 import java.util.Locale;
+import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -15,8 +19,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.actionbarsherlock.app.SherlockActivity;
 
-public class MainActivity extends FragmentActivity {
+
+public class MainActivity extends Activity{
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -27,6 +33,7 @@ public class MainActivity extends FragmentActivity {
 	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
 	 */
 	SectionsPagerAdapter mSectionsPagerAdapter;
+	private Spinner spinner1;
 
 	/**
 	 * The {@link ViewPager} that will host the section contents.
@@ -37,17 +44,38 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+	//	addItemsOnSpinner2();
+		/*Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+	// Create an ArrayAdapter using the string array and a default spinner layout
+	ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+	        R.array.menu_choices, android.R.layout.simple_spinner_item);
+	// Specify the layout to use when the list of choices appears
+	adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	// Apply the adapter to the spinner
+	spinner.setAdapter(adapter);*/
+	
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
-		mSectionsPagerAdapter = new SectionsPagerAdapter(
+		/*mSectionsPagerAdapter = new SectionsPagerAdapter(
 				getSupportFragmentManager());
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
-
+*/
 	}
+	
+	public void addItemsOnSpinner2() {
+		 
+		spinner1 = (Spinner) findViewById(R.id.spinner1);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        R.array.menu, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+spinner1.setAdapter(adapter);
+
+	  }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -89,7 +117,7 @@ public class MainActivity extends FragmentActivity {
 			Locale l = Locale.getDefault();
 			switch (position) {
 			case 0:
-				return getString(R.string.title_section1).toUpperCase(l);
+				return getString(R.string.title_section2).toUpperCase(l);
 			case 1:
 				return getString(R.string.title_section2).toUpperCase(l);
 			case 2:
